@@ -66,7 +66,7 @@ with open(popmapFileName) as popmapFile:
 
 snps=""
 for nr in list(range(1,len(genodata)+1)):
-	snps=snps+" A"+str(nr)
+	snps=snps+" A"
 snps=snps+"\n"
 outputfile.write(snps)
 
