@@ -2,6 +2,7 @@ import sys
 
 inputFileName = sys.argv[1]
 popmapFileName = sys.argv[2]
+outputFileName = sys.argv[3]
 #inputFileName = "allium.vcf"
 
 def geno_switcher(argument):
@@ -31,10 +32,9 @@ with open(inputFileName) as inputFile:
 			startSampleNames+=1
 			#print(samplesHeader)
 			header = False
-	#outputfilename = inputFileName.split(".")[0]+".snp")
-	#print(outputfilename)
-	outputfile = open(inputFileName.split(".")[0]+".snp","w")
-	outputfile.write("<NM=1NF> <MAF=hudson>\n")
+	
+	outputfile = open(outputFileName+".snp","w")
+	outputfile.write("<NM=1.0NF> <MAF=hudson>\n")
 	outputfile.write("IND SEX POP")
 
 	#genosets=set()
@@ -66,7 +66,7 @@ with open(popmapFileName) as popmapFile:
 
 snps=""
 for nr in list(range(1,len(genodata)+1)):
-	snps=snps+" SNP"+str(nr)
+	snps=snps+" A"+str(nr)
 snps=snps+"\n"
 outputfile.write(snps)
 
