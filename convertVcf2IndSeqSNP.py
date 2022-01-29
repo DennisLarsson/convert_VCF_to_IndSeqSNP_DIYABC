@@ -61,7 +61,7 @@ with open(popmapFileName) as popmapFile:
 	for line in popmapFile:
 		indv, pop = line.rstrip().split("\t")
 		popmap[indv]=pop
-print(popmap)
+#print(popmap)
 
 
 snps=""
@@ -72,12 +72,12 @@ outputfile.write(snps)
 
 gene=0
 indv=0
-print(len(genodata))
+#print(len(genodata))
 while indv < len(genodata[0]):
 	outputfile.write(samplesHeader[indv] + " 9 " + popmap.get(samplesHeader[indv]))
 	gene=0
 	while gene < len(genodata):
-		print("gene: " + str(gene) + " indv: " + str(indv))
+		#print("gene: " + str(gene) + " indv: " + str(indv))
 		outputfile.write(" " + str(genodata[gene][indv]))
 		gene+=1
 	outputfile.write("\n")
